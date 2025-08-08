@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../router/route_names.dart';
 import '../../../themes/app_colors.dart';
 import '../../../widgets/custom_bottom_sheet.dart';
-import '../../tasks/views/add_task_view.dart';
+import '../../tasks/views/add_task_screen.dart';
 import '../../tasks/views/tasks_screen.dart';
 import '../cubit/nav_bar_cubit.dart';
 import '../widgets/home_nav_bar.dart';

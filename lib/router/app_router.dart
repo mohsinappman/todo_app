@@ -5,6 +5,7 @@ import '../core/features/auth/views/sign_in_screen.dart';
 import '../core/features/auth/views/sign_up_screen.dart';
 import '../core/features/base/views/home_base_screen.dart';
 import '../core/features/category/views/create_category_screen.dart';
+import '../core/features/tasks/views/update_task_screen.dart';
 import 'route_names.dart';
 
 class AppRouter {
@@ -40,6 +41,10 @@ class AppRouter {
       GoRoute(
         path: RouteNames.createCategoryScreen,
         builder: (context, state) => const CreateCategoryScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.updateTaskScreen,
+        builder: (context, state) => const UpdateTaskScreen(),
       ),
     ],
   );
