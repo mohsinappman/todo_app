@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../themes/app_colors.dart';
 
 Color? parseColorString({String? colorString}) {
-  if(colorString == null) {
+  if (colorString == null) {
     return AppColors.greenColor;
   }
   final regex = RegExp(

@@ -7,9 +7,7 @@ import '../widgets/view_categories_widget.dart';
 
 class ViewCategoriesDialog extends StatefulWidget {
   final ValueChanged<CategoryModel> onCategorySelected;
-  const ViewCategoriesDialog({super.key,
-  required this.onCategorySelected,
-  });
+  const ViewCategoriesDialog({super.key, required this.onCategorySelected});
 
   @override
   State<ViewCategoriesDialog> createState() => _ViewCategoriesDialogState();
@@ -35,17 +33,19 @@ class _ViewCategoriesDialogState extends State<ViewCategoriesDialog> {
             ),
             Divider(),
             15.verticalSpace,
-            Expanded(child: ViewCategoriesWidget(
-              onCategorySelected: (category) {
-               selectedCategory = category;
-              },
-            )),
+            Expanded(
+              child: ViewCategoriesWidget(
+                onCategorySelected: (category) {
+                  selectedCategory = category;
+                },
+              ),
+            ),
             SizedBox(
               width: 289.w,
               child: CustomElevatedButton(
                 child: Text('Add Category'),
                 onPressed: () {
-                  if(selectedCategory != null) {
+                  if (selectedCategory != null) {
                     widget.onCategorySelected(selectedCategory!);
                   }
                   context.pop();

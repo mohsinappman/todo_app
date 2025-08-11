@@ -40,7 +40,9 @@ class TaskModel {
           ? DateTime.tryParse(json['due_datetime'])
           : null,
       categoryId: json['category_id'] as String?,
-      category: json['categories'] != null && json['categories'] is Map<String, dynamic>
+      category:
+          json['categories'] != null &&
+              json['categories'] is Map<String, dynamic>
           ? CategoryModel.fromJson(json['categories'] as Map<String, dynamic>)
           : null,
       taskPriority: json['task_priority'] != null

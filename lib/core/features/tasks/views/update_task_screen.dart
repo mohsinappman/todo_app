@@ -74,15 +74,13 @@ class _UpdateTaskScreenState extends State<UpdateTaskScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  Icons.delete,
-                  color: AppColors.errorColor,
-                ),
+                Icon(Icons.delete, color: AppColors.errorColor),
                 11.horizontalSpace,
-                Text('Delete Task',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: AppColors.errorColor,
-                ),
+                Text(
+                  'Delete Task',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppColors.errorColor,
+                  ),
                 ),
               ],
             ),

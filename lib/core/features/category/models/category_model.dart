@@ -18,18 +18,15 @@ class CategoryModel {
       id: json['id'] as String?,
       name: json['name'] as String?,
       imageUrl: json['image_url'] as String?,
-      colorHex: json['color_hex']?.toString(), // handles both hex and Color obj as string
-      createdAt: json['created_at'] != null 
+      colorHex: json['color_hex']
+          ?.toString(), // handles both hex and Color obj as string
+      createdAt: json['created_at'] != null
           ? DateTime.tryParse(json['created_at'] as String)
           : null,
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'image_url': imageUrl,
-      'color_hex': colorHex,
-    };
+    return {'name': name, 'image_url': imageUrl, 'color_hex': colorHex};
   }
 }

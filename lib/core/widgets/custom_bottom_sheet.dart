@@ -23,12 +23,9 @@ Future<T?> showAdaptiveBottomSheet<T>({
         ),
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
-          child: IntrinsicHeight(
-            child: child,
-          ),
+          child: IntrinsicHeight(child: child),
         ),
       );
     },
   );
 }
-

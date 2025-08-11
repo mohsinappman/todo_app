@@ -5,15 +5,16 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/task_model.dart';
 
 abstract class TaskService {
-  Future createTask({
-    required TaskModel task,
-  });
-  
+  Future createTask({required TaskModel task});
+
   Future<List<TaskModel>> getAllTasks();
   Future<List<TaskModel>> getTasksByCategory({required String categoryId});
   Future<void> updateTask({required TaskModel taskModel});
   Future<void> deleteTask({required String taskId});
-  Future<void> toggleTaskCompletion({required String taskId, required bool isCompleted});
+  Future<void> toggleTaskCompletion({
+    required String taskId,
+    required bool isCompleted,
+  });
 }
 
 class TaskServiceRepository implements TaskService {
@@ -68,7 +69,9 @@ class TaskServiceRepository implements TaskService {
   }
 
   @override
-  Future<List<TaskModel>> getTasksByCategory({required String categoryId}) async {
+  Future<List<TaskModel>> getTasksByCategory({
+    required String categoryId,
+  }) async {
     try {
       // Get current user ID
       final currentUser = supabase.auth.currentUser;
@@ -91,7 +94,9 @@ class TaskServiceRepository implements TaskService {
           .eq('category_id', categoryId)
           .order('created_at', ascending: false);
 
-      log('Fetched ${response.length} tasks for user: ${currentUser.id}, category: $categoryId');
+      log(
+        'Fetched ${response.length} tasks for user: ${currentUser.id}, category: $categoryId',
+      );
       return response.map((item) => TaskModel.fromJson(item)).toList();
     } catch (e) {
       log('Error fetching tasks by category: ${e.toString()}');
@@ -117,10 +122,7 @@ class TaskServiceRepository implements TaskService {
   @override
   Future<void> deleteTask({required String taskId}) async {
     try {
-      await supabase
-          .from('todos')
-          .delete()
-          .eq('id', taskId);
+      await supabase.from('todos').delete().eq('id', taskId);
 
       log('Task deleted successfully: $taskId');
     } catch (e) {

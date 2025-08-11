@@ -66,10 +66,12 @@ class _SetPriorityDialogState extends State<SetPriorityDialog> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image.asset(AppAssets.flagIcon,),
+                                  Image.asset(AppAssets.flagIcon),
                                   Text(
                                     index.toString(),
-                                    style: Theme.of(context).textTheme.titleMedium,
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.titleMedium,
                                   ),
                                 ],
                               ),
@@ -100,7 +102,7 @@ class _SetPriorityDialogState extends State<SetPriorityDialog> {
               Expanded(
                 child: CustomElevatedButton(
                   onPressed: () {
-                    if(selectedPriority != null) {
+                    if (selectedPriority != null) {
                       widget.onPrioritySelected(selectedPriority! + 1);
                       context.pop();
                     }

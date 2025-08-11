@@ -11,16 +11,12 @@ class CreateTaskCubit extends Cubit<BaseState>
 
   CreateTaskCubit(this._taskService) : super(const InitialState());
 
-  Future<void> createTask({
-    required TaskModel task
-  }) async {
+  Future<void> createTask({required TaskModel task}) async {
     emit(const LoadingState());
 
     try {
-      final createdTask = await _taskService.createTask(
-        task: task
-      );
-      
+      final createdTask = await _taskService.createTask(task: task);
+
       emit(SuccessState<TaskModel>(data: createdTask));
     } catch (error) {
       handleException(error);

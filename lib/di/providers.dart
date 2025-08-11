@@ -31,14 +31,12 @@ List<BlocProvider> providers = [
     ),
   ),
   BlocProvider<CreateTaskCubit>(
-    create: (context) => CreateTaskCubit(
-      TaskServiceRepository(Supabase.instance.client),
-    ),
+    create: (context) =>
+        CreateTaskCubit(TaskServiceRepository(Supabase.instance.client)),
   ),
   BlocProvider<GetTasksCubit>(
-    create: (context) => GetTasksCubit(
-      TaskServiceRepository(Supabase.instance.client),
-    ),
+    create: (context) =>
+        GetTasksCubit(TaskServiceRepository(Supabase.instance.client)),
   ),
   BlocProvider<ImagePickerCubit>(create: (context) => ImagePickerCubit()),
   BlocProvider<ImageUploadCubit>(

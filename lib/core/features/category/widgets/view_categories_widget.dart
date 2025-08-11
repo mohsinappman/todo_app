@@ -14,9 +14,7 @@ import '../models/category_model.dart';
 class ViewCategoriesWidget extends StatefulWidget {
   final ValueChanged<CategoryModel> onCategorySelected;
 
-  const ViewCategoriesWidget({super.key,
-    required this.onCategorySelected,
-  });
+  const ViewCategoriesWidget({super.key, required this.onCategorySelected});
 
   @override
   State<ViewCategoriesWidget> createState() => _ViewCategoriesWidgetState();
@@ -82,13 +80,9 @@ class _ViewCategoriesWidgetState extends State<ViewCategoriesWidget> {
                         Flexible(
                           child: Text(
                             'Create New',
-                            style: Theme
-                                .of(
+                            style: Theme.of(
                               context,
-                            )
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(fontSize: 12.sp),
+                            ).textTheme.titleSmall!.copyWith(fontSize: 12.sp),
                             maxLines: 1,
                           ),
                         ),
@@ -98,54 +92,50 @@ class _ViewCategoriesWidgetState extends State<ViewCategoriesWidget> {
                 ),
                 ...List.generate(
                   categories.length,
-                      (index) =>
-                      GestureDetector(
-                        onTap: () {
-                          widget.onCategorySelected(categories[index]);
-                          setState(() {
-                            selectedCategory = categories[index];
-                          });
-                        },
-                        child: SizedBox(
-                          height: 90.h,
-                          width: 64.w,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                height: 64.h,
-                                width: 64.w,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    color: parseColorString(
-                                      colorString: categories[index].colorHex,
-                                    ),
-                                    border: Border.all(
-                                      color: selectedCategory == categories[index]
-                                          ? AppColors.primaryColor
-                                          : Colors.transparent,
-                                      width: 6,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  child: Center(child: Icon(Icons.ac_unit)),
+                  (index) => GestureDetector(
+                    onTap: () {
+                      widget.onCategorySelected(categories[index]);
+                      setState(() {
+                        selectedCategory = categories[index];
+                      });
+                    },
+                    child: SizedBox(
+                      height: 90.h,
+                      width: 64.w,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 64.h,
+                            width: 64.w,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                color: parseColorString(
+                                  colorString: categories[index].colorHex,
                                 ),
-                              ),
-                              Flexible(
-                                child: Text(
-                                  categories[index].name!,
-                                  style: Theme
-                                      .of(context)
-                                      .textTheme
-                                      .titleSmall,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center,
+                                border: Border.all(
+                                  color: selectedCategory == categories[index]
+                                      ? AppColors.primaryColor
+                                      : Colors.transparent,
+                                  width: 6,
                                 ),
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ],
+                              child: Center(child: Icon(Icons.ac_unit)),
+                            ),
                           ),
-                        ),
+                          Flexible(
+                            child: Text(
+                              categories[index].name!,
+                              style: Theme.of(context).textTheme.titleSmall,
+                              maxLines: 1,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
                       ),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -154,10 +144,7 @@ class _ViewCategoriesWidgetState extends State<ViewCategoriesWidget> {
           return Center(
             child: Text(
               state.error ?? '',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyLarge,
+              style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
           );

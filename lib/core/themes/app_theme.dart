@@ -142,23 +142,25 @@ final ThemeData customTheme = ThemeData(
       borderRadius: BorderRadius.all(Radius.circular(16.r)),
     ),
     // Hour/Minute selector colors
-    hourMinuteColor: WidgetStateColor.resolveWith((states) =>
-        states.contains(WidgetState.selected)
-            ? AppColors.primaryColor
-            : const Color(0xFF1D1D1D)),
-    hourMinuteTextColor: WidgetStateColor.resolveWith((states) =>
-        states.contains(WidgetState.selected)
-            ? Colors.white
-            : Colors.white),
+    hourMinuteColor: WidgetStateColor.resolveWith(
+      (states) => states.contains(WidgetState.selected)
+          ? AppColors.primaryColor
+          : const Color(0xFF1D1D1D),
+    ),
+    hourMinuteTextColor: WidgetStateColor.resolveWith(
+      (states) =>
+          states.contains(WidgetState.selected) ? Colors.white : Colors.white,
+    ),
     // AM/PM selector colors
-    dayPeriodColor: WidgetStateColor.resolveWith((states) =>
-        states.contains(WidgetState.selected)
-            ? AppColors.primaryColor
-            : const Color(0xFF1D1D1D)),
-    dayPeriodTextColor: WidgetStateColor.resolveWith((states) =>
-        states.contains(WidgetState.selected)
-            ? Colors.white
-            : Colors.white),
+    dayPeriodColor: WidgetStateColor.resolveWith(
+      (states) => states.contains(WidgetState.selected)
+          ? AppColors.primaryColor
+          : const Color(0xFF1D1D1D),
+    ),
+    dayPeriodTextColor: WidgetStateColor.resolveWith(
+      (states) =>
+          states.contains(WidgetState.selected) ? Colors.white : Colors.white,
+    ),
     // Entry mode icon color
     entryModeIconColor: AppColors.primaryColor,
     // Header colors

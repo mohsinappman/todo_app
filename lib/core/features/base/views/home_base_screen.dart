@@ -19,9 +19,7 @@ class HomeBaseScreen extends StatefulWidget {
 
 class _HomeBaseScreenState extends State<HomeBaseScreen> {
   late NavBarCubit navBarViewModel;
-  final List<Widget> _screens = [
-    TasksScreen()
-  ];
+  final List<Widget> _screens = [TasksScreen()];
 
   @override
   void initState() {
@@ -82,10 +80,7 @@ class _HomeBaseScreenState extends State<HomeBaseScreen> {
       bottomNavigationBar: HomeNavBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showAdaptiveBottomSheet(
-            context: context,
-            child: AddTaskView(),
-          );
+          showAdaptiveBottomSheet(context: context, child: AddTaskView());
         },
         child: const Icon(Icons.add),
       ),

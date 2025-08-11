@@ -56,15 +56,15 @@ class _AddTaskViewState extends State<AddTaskView> {
   void _onSubmit() {
     if (_formKey.currentState!.validate()) {
       List<String> missingFields = [];
-      
+
       if (_selectedDateTime == null) {
         missingFields.add('Date and Time');
       }
-      
+
       if (selectedCategory == null || selectedCategory!.id == null) {
         missingFields.add('Category');
       }
-      
+
       if (selectedPriority == null) {
         missingFields.add('Priority');
       }
@@ -79,12 +79,12 @@ class _AddTaskViewState extends State<AddTaskView> {
         task: TaskModel(
           title: _titleController.text,
           description: _descriptionController.text,
-          dueDateTime:  _selectedDateTime!,
+          dueDateTime: _selectedDateTime!,
           categoryId: selectedCategory!.id!,
           taskPriority: selectedPriority!,
           isCompleted: false,
           fkUserId: Supabase.instance.client.auth.currentUser!.id,
-        )
+        ),
       );
     }
   }
@@ -95,7 +95,7 @@ class _AddTaskViewState extends State<AddTaskView> {
       listeners: [
         BlocListener<CreateTaskCubit, BaseState>(
           listener: (context, state) {
-            if(state is SuccessState) {
+            if (state is SuccessState) {
               _getTasksCubit.getAllTasks();
               context.pop();
             }
@@ -186,7 +186,7 @@ class _AddTaskViewState extends State<AddTaskView> {
                     100.horizontalSpace,
                     BlocBuilder<CreateTaskCubit, BaseState>(
                       builder: (context, state) {
-                        if(state is LoadingState) {
+                        if (state is LoadingState) {
                           return LoadingIndicator(
                             color: AppColors.primaryColor,
                           );
