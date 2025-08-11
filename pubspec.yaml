@@ -42,6 +42,7 @@ dependencies:
   google_fonts: ^6.3.0
   image_picker: ^1.1.2
   syncfusion_flutter_datepicker: ^30.1.42
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:
