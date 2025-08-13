@@ -19,7 +19,12 @@ class HomeBaseScreen extends StatefulWidget {
 
 class _HomeBaseScreenState extends State<HomeBaseScreen> {
   late NavBarCubit navBarViewModel;
-  final List<Widget> _screens = [TasksScreen()];
+  final List<Widget> _screens = [
+    TasksScreen(),
+    SizedBox(),
+    SizedBox(),
+    SizedBox(),
+  ];
 
   @override
   void initState() {

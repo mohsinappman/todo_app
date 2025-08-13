@@ -22,21 +22,16 @@ List<BlocProvider> providers = [
     create: (context) => CreateCategoryCubit(createCategoryUsecase),
   ),
   BlocProvider<CreateTaskCubit>(
-    create: (context) =>
-        CreateTaskCubit(createTaskUsecase),
+    create: (context) => CreateTaskCubit(createTaskUsecase),
   ),
   BlocProvider<GetTasksCubit>(
-    create: (context) =>
-        GetTasksCubit(getAllTasksUseCase),
+    create: (context) => GetTasksCubit(getAllTasksUseCase),
   ),
   BlocProvider<ImagePickerCubit>(create: (context) => ImagePickerCubit()),
   BlocProvider<ImageUploadCubit>(
-    create: (context) => ImageUploadCubit(
-      imageUploadUsecase,
-    ),
+    create: (context) => ImageUploadCubit(imageUploadUsecase),
   ),
   BlocProvider<GetCategoriesCubit>(
-    create: (context) =>
-        GetCategoriesCubit(getAllCategoriesUseCase),
+    create: (context) => GetCategoriesCubit(getAllCategoriesUseCase),
   ),
 ];
