@@ -6,16 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:todo_app/shared/presentation/cubits/image_upload_cubit.dart';
 import '../../../../app/themes/app_colors.dart';
 import '../../../../shared/presentation/cubits/image_picker_cubit.dart';
-import '../../../../shared/presentation/cubits/image_upload_cubit.dart';
 import '../../../../shared/presentation/widgets/custom_error_handler.dart';
 import '../../../../shared/presentation/widgets/custom_loading_indicator.dart';
 import '../../../../shared/state/base_state.dart';
 import '../../data/models/category_model.dart';
+import '../../domain/entities/category_entity.dart';
 import '../../../../shared/utils/validators.dart';
 import '../cubits/create_category_cubit.dart';
-import '../cubits/get_categories_cubit.dart';
 
 class CreateCategoryScreen extends StatefulWidget {
   const CreateCategoryScreen({super.key});
@@ -28,7 +28,6 @@ class _CreateCategoryScreenState extends State<CreateCategoryScreen> {
   late ImagePickerCubit _imagePickerCubit;
   late ImageUploadCubit _imageUploadCubit;
   late CreateCategoryCubit _createCategoryCubit;
-  late GetCategoriesCubit _getCategoriesCubit;
   final TextEditingController _nameController = TextEditingController();
   final key = GlobalKey<FormState>();
   final List<Color> colors = List.generate(
@@ -49,7 +48,6 @@ class _CreateCategoryScreenState extends State<CreateCategoryScreen> {
     _imagePickerCubit = context.read<ImagePickerCubit>();
     _imageUploadCubit = context.read<ImageUploadCubit>();
     _createCategoryCubit = context.read<CreateCategoryCubit>();
-    _getCategoriesCubit = context.read<GetCategoriesCubit>();
   }
 
   callCubits() {
@@ -85,7 +83,6 @@ class _CreateCategoryScreenState extends State<CreateCategoryScreen> {
         BlocListener<CreateCategoryCubit, BaseState>(
           listener: (context, state) {
             if (state is SuccessState) {
-              _getCategoriesCubit.getCategories();
               context.pop();
             }
             errorHandler(context: context, state: state);
